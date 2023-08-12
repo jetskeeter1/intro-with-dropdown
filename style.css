@@ -1,0 +1,349 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: hsl(0, 0%, 41%);
+    box-sizing: inherit;
+    font-family: 'Epilogue', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+.flex{
+    display: flex;
+}
+
+.fRight{
+    float: right;
+}
+
+.fLeft{
+    float: left;
+}
+
+.close{
+    display: none;
+}
+
+.open{
+    display: none;
+}
+
+/* _________________________________________________TOP BAR___________________________________________________________________________________ */
+
+.top-container{
+    position: relative;
+    padding: 0 10px;
+}
+
+.logo{
+    margin-top: 25px;
+    margin-right: 10px;
+}
+
+.navbar{
+    gap: 30px;
+    height: 50px;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar a:hover{
+    color:hsl(0, 0%, 8%);
+}
+
+.arrowresp img{
+    --root: 90px;
+    width: var(--root);
+    height: var(--root - 30);
+}
+
+.arrow{
+    background-color: transparent;
+    border: none;
+}
+
+/* It makes arrows up and down responsive by using pseudo class and I use content to add image without having create element class that is less efficient
+    and aligning it to text by my experience.
+
+.arrow::after{
+    content: url(images/icon-arrow-down.svg);
+    padding-left: 5px;
+    width: fit-content;
+}
+.arrow:focus::after,
+.arrow:focus{
+    content: url(images/icon-arrow-up.svg);
+    color: hsl(0, 0%, 8%);
+}
+____end of arrow responsiveness_______ 
+update: no longer needed, but wanted to leave it as part of history of what I had done and could be used for future references and may have its use.
+What I have basically done here is taking advantage of focus and it switches between up and down svg arrow whenever the class element is click and 
+click outside the class element.
+*/
+
+.featureList, .companylist{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 7px;
+    border-radius: 5px ;
+    font-size: 0.8em;
+    gap: 2px;
+    box-shadow: 0 0 10px hsl(0, 0%, 80%);
+    min-width: 12px;
+    overflow: hidden;
+    height: 0;
+    transition: 500ms;
+    z-index: 999;
+}
+
+.featureList a::before{
+    margin-right: 5px;
+}
+.todo::before{
+    content: url(images/icon-todo.svg);
+}
+.reminder::before{
+    content: url(images/icon-reminders.svg);
+}
+.calendar::before{
+    content: url(images/icon-calendar.svg);
+}
+.planning::before{
+    content: url(images/icon-planning.svg);
+}
+
+.featureList a, .companylist a{
+    padding: 10px;
+}
+/* 
+dropdown list by using focus along with animation to make smooth so that it will not just pop up... yes.
+.featureB:focus ~.featureList{
+    height: 170px;
+}
+.companyB:focus ~.companylist{
+    height: 100px;
+}
+end of dropdown list animate 
+update: no longer needed, but wanted to leave it as part of history of what I had done and could be used for future references and may have its use
+*/
+
+.height-feature{
+    height: 170px;
+}
+
+.height-company{
+    height: 105px;
+}
+
+.arrowresp{
+    display: inline-flex;
+}
+
+.arrowresp img{
+    padding-top: 4px;
+    padding-left: 5px;
+    width: 10px;
+    height: 5px;
+}
+
+.reglog{
+    gap: 10px;
+    align-items: center;
+}
+
+.marge-nav-left{
+    margin-left: auto;
+}
+
+.design-reg{
+    border: 1px solid hsl(0, 0%, 41%);
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+
+.design-reg:hover, .design-reg:focus{
+    border-color: hsl(0, 0%, 0%);
+    color: black;
+}
+
+/* _________________________________________________MAIN__________________________________________________________________ */
+
+main{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    margin: 30px 90px;
+    gap: 80px;
+    height: fit-content;
+}
+
+picture img{
+    width: 25em;
+    margin-left: auto ;
+}
+
+article{
+    height: 100%;
+}
+
+h1{
+    color: hsl(0, 0%, 8%);
+    margin-top: 50px;
+    font-size: 4.8em;
+}
+
+p{
+    font-size: 1em;
+    line-height: 1.5em;
+    width: 400px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.btn-learn{
+    display: inline-block;
+    background-color: hsl(0, 0%, 8%);
+    border: 1px solid hsl(0, 0%, 8%);
+    border-radius: 10px;
+    color: hsl(0, 0%, 100%);
+    padding: 13px 25px;
+}
+
+.btn-learn:hover{
+    background-color: white;
+    color: hsl(0, 0%, 8%);
+}
+
+.sponsor{
+    position: absolute;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    bottom: 0;
+}
+
+/* _______________________________________MEDIA QUERIES MOBILE_______________________________________ */
+
+@media only screen and (max-width:375px) {
+
+    .logo{
+        position: absolute;
+        left: 10px;
+        top: -45px;
+    }
+
+    /* Same concept that I use to make the dropdown list */
+    .navbar{
+        position: absolute;
+        display: flex;
+        top: -30px;
+        right: 0;
+        z-index: 99;
+        background-color: hsl(0, 0%, 100%);
+        height: 100vh;
+        width: 0;
+        padding: 50px 0 0 0;
+        flex-direction: column;
+        gap: 20px;
+        overflow: hidden;
+        transition: 1s;
+    }
+    
+    .sidebaropen{
+        box-shadow: 0 0 10px 200px rgba(0, 0, 0, 0.4);
+        overflow: visible;
+        width: 200px;
+    }
+
+    .navbar *{
+        font-size: 15px;
+    }
+
+    .open{
+        position: absolute;
+        display: block;
+        right: 15px;
+        top: -15px;
+        width: 20px;
+    }
+        
+    .close{
+        position: absolute;
+        display: block;
+        top: 10px;
+        right: 15px;
+        width: 20px;
+    }
+            
+    
+    .dropdown{
+        display: inline-block;
+    }
+
+    .design-reg{
+        padding:0;
+        border-radius: 2px;
+    }
+    .marge-nav-left{
+        margin: 0;
+    }
+    .mobile-max-width{
+        padding: 10px 0;
+        width: 130px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .mobile-max-width:hover{
+        background-color: hsl(0, 0%, 90%);
+    }
+
+    /* ___________________________________________MAIN BODY_________________ */
+
+    main{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0;
+        height: 85vh;
+        padding-top: 1em;
+        max-width: 375px;
+    }
+
+    picture img{
+        width: 375px;
+    }
+
+    article{
+        text-align: center;
+        font-size: .8em;
+        margin-top: 0;
+    }
+
+    article h1{
+        font-size: 2.8em;
+        margin: 0 auto;
+        width: 375px;
+    }
+
+    article p{
+        width: 375px;
+        margin-bottom: 30px;
+    }
+    .btn-learn{
+        width: 10em;
+        padding: 10px 0;
+        margin-top: 10px;
+    }
+
+    .sponsor{
+        text-align: center;
+        width: 375px;
+    }
+
+    .sponsor img{
+        width: 80px;
+    }
+}

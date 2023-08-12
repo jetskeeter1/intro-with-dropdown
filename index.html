@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+  <!-- font Epilouge link to googleFonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
+  <!-- External File CSS stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+
+  <nav class="top-container">
+    
+    <img src="images/logo.svg" alt="snap" class="logo fLeft">
+    
+    <img src="images/icon-menu.svg" alt="open menu" class="open" id="openmenu" onmousedown="openMenu()">
+
+    <div class="navbar flex" id="mobilenav">
+
+      <img src="images/icon-close-menu.svg" alt="close menu" class="close" id="closemenu" onmousedown="closeMenu()">
+
+      <div class="dropdown">
+        <div class="arrowresp"><button class="featureB arrow " onmousedown="toggleDiv();">Features</button> <img src="images/icon-arrow-down.svg" id="arrow-down" style="display:block" alt="down"> <img src="images/icon-arrow-up.svg" id="arrow-up" style="display:none" alt="up"></div>
+        <div class="featureList" id="featureL">
+          <a href="#Todo" class="todo">Todo List</a>
+          <a href="#Calendar" class="calendar">Calendar</a>
+          <a href="#Reminder" class="reminder">Reminders</a>
+          <a href="#Planning" class="planning">Planning</a>
+        </div>
+
+      </div>
+
+      <div class="dropdown">
+        <div class="arrowresp"><button class="companyB arrow " onmousedown="toggleDiva();">Company</button> <img src="images/icon-arrow-down.svg" id="arrow-down1" style="display:block" alt="down"> <img src="images/icon-arrow-up.svg" id="arrow-up1" style="display:none" alt="up"></div>
+        <div class="companylist" id="cl">
+          <a href="#OurTeam">Our Team</a>
+          <a href="#History">History</a>
+          <a href="#Blod">Blog</a>
+        </div>
+        
+      </div>
+
+      <a href="#Features">careers</a>
+
+      <a href="#Features">about</a>
+  
+      <a href="#Login" class="marge-nav-left mobile-max-width">Login</a>
+
+      <a href="#Register" class="design-reg mobile-max-width">Register</a>
+    </div>
+
+  </nav>
+
+  <div class="shadow" style="display: none;"></div>
+
+</header>
+
+<main>
+
+  <article>
+
+    <h1>Make Remote work</h1>
+
+    <p>Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+
+    <a href="#learnmore" class="btn-learn">Learn more</a>
+    
+    <div class="sponsor">
+      <img src="images/client-databiz.svg" alt="databiz">
+      <img src="images/client-audiophile.svg" alt="client-audiophile">
+      <img src="images/client-meet.svg" alt="client-meet">
+      <img src="images/client-maker.svg" alt="maker">
+    </div>
+
+  </article>
+
+  <picture>
+    <source media="(max-width:375px)" srcset="images/image-hero-mobile.png">
+    <img src="images/image-hero-desktop.png" alt="desktop mode image"></picture>
+
+</main>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/jetskeeter1/intro-with-dropdown">Dalton Napala</a>.
+
+  </div>
+  <script src="javascript.js"></script>
+</body>
+</html>
